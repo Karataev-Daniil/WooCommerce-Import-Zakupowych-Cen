@@ -1,0 +1,17 @@
+{
+    "name": "dirin/woo-import-purchase-prices",
+    "autoload": {
+        "psr-4": {
+            "Dirin\\WooImportPurchasePrices\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Karataev Danil",
+            "email": "dirings52445@gamil.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^4.4"
+    }
+}
