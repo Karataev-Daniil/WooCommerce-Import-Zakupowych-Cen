@@ -12,10 +12,10 @@ class Admin_Page {
     public function register_import_page() {
         add_submenu_page(
             'woocommerce',
-            'Import cen zakupu',
-            'Import cen zakupu',
+            'Import Purchase Prices',
+            'Import Purchase Prices',
             'manage_woocommerce',
-            'import-cen-zakupu',
+            'import-purchase-prices',
             [ $this, 'render_page' ]
         );
     }
@@ -24,7 +24,7 @@ class Admin_Page {
     public function render_page() {
         ?>
         <div class="wrap">
-            <h1>Import cen zakupu</h1>
+            <h1>Import Purchase Prices</h1>
 
             <?php
             if ( isset( $_FILES['purchase_file'] ) ) {
@@ -34,7 +34,7 @@ class Admin_Page {
 
             <form method="post" enctype="multipart/form-data">
                 <input type="file" name="purchase_file" accept=".csv,.xlsx,.xls" required>
-                <?php submit_button( 'Załaduj i przelicz' ); ?>
+                <?php submit_button( 'Upload and Calculate' ); ?>
             </form>
         </div>
         <?php

@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: WooCommerce Import Zakupowych Cen
- * Description: Plugin for importing purchase prices by SKU and recalculating prices.
+ * Plugin Name: WooCommerce Import Purchase Prices
+ * Description: A plugin to import purchase prices by SKU and automatically recalculate them based on product weight variations.
  * Version: 1.0
  * Author: Daniil
  * Requires PHP: 7.4
@@ -27,7 +27,7 @@ require_once WIPC_PLUGIN_PATH . 'includes/helpers.php';
 require_once WIPC_PLUGIN_PATH . 'admin/class-admin-page.php';
 
 register_activation_hook( __FILE__, function() {
-    // Create folder for imports
+    // Create a folder for temporary import files
     $upload_dir = wp_upload_dir();
     $import_dir = $upload_dir['basedir'] . '/tmp-imports/';
 
