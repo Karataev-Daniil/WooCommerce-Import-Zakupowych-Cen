@@ -1,28 +1,40 @@
 # WooCommerce Import Purchase Prices
-Плагин WordPress для импорта закупочных цен из CSV или Excel и автоматического пересчета на основе граммовки вариантов.
 
-## Требования
-- WordPress 5.8+
-- WooCommerce 6.0+
-- PHP 7.4+
-- ACF Pro
-- PhpSpreadsheet (для .xlsx)
+A WordPress plugin for importing purchase prices from CSV or Excel files and automatically recalculating them based on product variation weights.
 
-## Установка
-1. Скопируйте плагин в папку `/wp-content/plugins/`
-2. Убедитесь, что установлена библиотека `PhpSpreadsheet`
-3. Активируйте плагин в админке WordPress
+## Requirements
 
-## Использование
-1. Перейдите в WooCommerce → Import Purchase Prices
-2. Загрузите CSV или Excel с колонками:
-   - `nr. sku`
-   - `cena_zakupu_za_1kg`
-3. Плагин найдет все вариации вида `SKU-500G`, `SKU-1KG` и рассчитает цену для каждой вариации.
-4. Расчёт и сохранение цены происходит в поле ACF `cena_zakupu` у вариаций.
+- WordPress 5.8 or higher  
+- WooCommerce 6.0 or higher  
+- PHP 7.4 or higher  
+- ACF Pro plugin  
+- PhpSpreadsheet library (for `.xlsx` support)
 
-## Важно
-- Для корректной работы убедитесь, что товар является **Variable Product** (переменным товаром).
-- У товара должно быть ровно 3 варианта с граммовками: `1KG`, `500G` и `250G`.
-- SKU вариантов должны иметь структуру, например: `25128-1KG`, где `25128` — базовый SKU товара, а `1KG` — граммовка.
-- Для тестирования в плагине есть готовые тестовые файлы в папке `assets/sample-files`.
+## Installation
+
+1. Upload the plugin to the `/wp-content/plugins/` directory  
+2. Ensure that the `PhpSpreadsheet` library is installed and autoloaded  
+3. Activate the plugin through the WordPress admin panel  
+
+## Usage
+
+1. Navigate to **WooCommerce → Import Purchase Prices**  
+2. Upload a CSV or Excel file containing the following columns:  
+   - `nr. sku`  
+   - `cena_zakupu_za_1kg`  
+3. The plugin will automatically find all product variations like `SKU-500G`, `SKU-1KG`, and calculate the purchase price based on the weight  
+4. The calculated price is saved to the ACF field `cena_zakupu` on each variation  
+
+## Important Notes
+
+- The product must be a **Variable Product**  
+- It should have exactly **3 variations** with weights: `1KG`, `500G`, and `250G`  
+- Variation SKUs must follow the structure `BASESKU-WEIGHT`, for example: `25128-1KG`  
+- Example files are available in the `assets/sample-files` folder for testing  
+
+## Sample CSV Format
+
+```csv
+nr. sku,cena_zakupu_za_1kg
+25128,10.50
+25129,13.70
