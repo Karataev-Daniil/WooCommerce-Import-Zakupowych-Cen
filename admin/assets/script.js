@@ -18,3 +18,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const showMoreBtn = document.getElementById('wipc-show-more-errors');
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', function () {
+            const hiddenItems = document.querySelectorAll('.wipc-hidden-error');
+            hiddenItems.forEach(el => el.style.display = 'list-item');
+            showMoreBtn.style.display = 'none';
+        });
+    }
+});

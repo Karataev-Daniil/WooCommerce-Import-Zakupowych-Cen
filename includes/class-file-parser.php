@@ -52,6 +52,24 @@ class File_Parser {
         return $this->data;
     }
 
+    public function parse_csv_generator() {
+        $handle = fopen($this->file_path, 'r');
+        if (!$handle) {
+            throw new \Exception('Cannot open CSV file.');
+        }
+
+        $headers = fgetcsv($handle, 1000, ',');
+        if (!$this->validate_headers($headers)) {
+            throw new \Exception('Missing required columns.');
+        }
+
+        while (($row = fgetcsv($handle, 1000, ',')) !== false) {
+            yield array_combine($headers, $row);
+        }
+
+        fclose($handle);
+    }
+
     // Parse Excel file
     private function parse_excel() {
         if ( ! class_exists( IOFactory::class ) ) {
