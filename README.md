@@ -23,7 +23,7 @@ A WordPress plugin for importing purchase prices from CSV or Excel files and aut
    - `nr. sku`  
    - `cena_zakupu_za_1kg`  
 3. The plugin will automatically find all product variations like `SKU-500G`, `SKU-1KG`, and calculate the purchase price based on the weight  
-4. The calculated price is saved to the ACF field `cena_zakupu` on each variation  
+4. The calculated price is saved to the standard WooCommerce price fields (_regular_price and _price) for each variation.
 
 ## Important Notes
 
